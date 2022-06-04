@@ -34,9 +34,32 @@ let show = (req,res)=>{
     })
 }
 
+let update = (req,res)=>{
+    Playlist.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,pl)=>{
+        if(err){
+            res.status(400).json(err)
+            return
+        }
+        res.render('show', {name: pl.name, info: pl.info, id: req.params.id })
+    })
+}
+
+let destroy = (req,res)=>{
+    Playlist.findByIdAndDelete(req.params.id, (err,pl)=>{
+        if(err){
+            res.status(400).json(err)
+            return
+        }
+        res.redirect('/playlists')
+    
+    })
+}
+
 module.exports = {
     index,
     getNew,
     create,
-    show
+    show,
+    update,
+    destroy
 }

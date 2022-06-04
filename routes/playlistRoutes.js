@@ -10,9 +10,9 @@ router.get('/new', pCtrl.getNew)
 //CREATE ROUTE
 router.post('/', pCtrl.create)
 //EDIT ROUTE
-
+router.put('/:id', pCtrl.update)
 //DELETE ROUTE
-
+router.delete('/:id', pCtrl.destroy)
 //SHOW ROUTE
 router.get('/:id', pCtrl.show )
 
