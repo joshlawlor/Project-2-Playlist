@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>My Playlists</h1>
-    <table><%= index%></table>
+    <table><%index.forEach((element,index)=>{ %>
+        <tr></tr>
+        <td><a href="/playlists/<%=element.id%>"><%=element.name%></a></td>
+   <% })%></table>
+    <a href="/playlists/new"><button>New Playlist</button></a>
 </body>
 </html>

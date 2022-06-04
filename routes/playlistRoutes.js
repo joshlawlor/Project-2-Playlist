@@ -8,13 +8,13 @@ router.get('/', pCtrl.index)
 //NEW ROUTE
 router.get('/new', pCtrl.getNew)
 //CREATE ROUTE
-
+router.post('/', pCtrl.create)
 //EDIT ROUTE
 
 //DELETE ROUTE
 
 //SHOW ROUTE
-
+router.get('/:id', pCtrl.show )
 
 
 
