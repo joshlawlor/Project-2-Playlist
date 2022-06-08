@@ -16,7 +16,4 @@ router.delete('/:id', pCtrl.destroy)
 //SHOW ROUTE
 router.get('/:id', pCtrl.show )
 
-
-
-
 module.exports = router

@@ -15,10 +15,68 @@
         <button type="submit">EDIT PLAYLIST</button>
     </form>
     <br>
-    <h2>Songs:</h2>
+    
     <br>
     <a href="/playlists"><button>BACK</button></a>
     <br> <br>
     <form action="/playlists/<%=id%>?_method=DELETE" method= "POST"><button>DELETE PLAYLIST</button></form>
+
+    <h2>Songs:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Song Name</th>
+          <th>Artist Name</th>
+          <th>Genre</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% songs.forEach((element,index)=>{ %>
+          <tr>
+            <td>
+              <%= element.name %>
+            </td>
+            <td>
+              <%= element.artist %>
+            </td>
+            <td>
+              <%= element.genre %>
+            </td>
+            <td>
+              <%= element.rating %>
+            </td>
+          </tr>
+       <% }) %>
+      </tbody>
+    </table>
+
+        <br>
+    <form id="add-song-form" method="POST" action="/playlists/<%= id %>/songs">
+        <label>Song Name:</label>
+        <input type="text" name="name">
+        <label>Artist:</label>
+        <input type="text" name="artist">
+        <label>Genre:</label>
+        <input type="text" name="genre">
+        <label>Rating:</label>
+        <select name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <input type="submit" value="Add Song">
+      </form>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

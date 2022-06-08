@@ -3,7 +3,7 @@ const app = express()
 const PORT = 5000
 
 const playlistRoutes = require('./routes/playlistRoutes')
-
+const songRoutes =  require('./routes/songRoutes')
 require('./db/connection')
 
 //VIEW ENGINE
@@ -20,6 +20,7 @@ app.use(methodOverride('_method'))
 
 //ROUTES
 app.use('/playlists', playlistRoutes)
+app.use('/', songRoutes)
 
 app.listen(PORT, ()=>{
     console.log(`It's alive! On PORT:${PORT}`)

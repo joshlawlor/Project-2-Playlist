@@ -30,7 +30,7 @@ let show = (req,res)=>{
             return
         }
 
-        res.render('show', {name: pl.name, info: pl.info, id: req.params.id })
+        res.render('show', {name: pl.name, info: pl.info, id: req.params.id, songs: pl.songs })
     })
 }
 
