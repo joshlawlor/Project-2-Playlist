@@ -9,7 +9,7 @@
 <body>
     <h1>Playlist Name: <%= name%></h1>
     <h2>Info: <%=info%></h2>
-    <form action="/playlists/<%= id %>?_method=PUT" method="POST">
+    <form action="/playlists/<%= playlistID %>?_method=PUT" method="POST">
         <input type="text" name="name" value="<%=name%>">
         <input type="text" name="info" value="<%=info%>">
         <button type="submit">EDIT PLAYLIST</button>
@@ -19,7 +19,7 @@
     <br>
     <a href="/playlists"><button>BACK</button></a>
     <br> <br>
-    <form action="/playlists/<%=id%>?_method=DELETE" method= "POST"><button>DELETE PLAYLIST</button></form>
+    <form action="/playlists/<%=playlistID%>?_method=DELETE" method= "POST"><button>DELETE PLAYLIST</button></form>
 
 
     <% if (songs.length){ %>
@@ -54,10 +54,10 @@
               <%= element._id %>
             </td>
             <td>
-              <form action="/playlists/<%=id%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button>DELETE SONG</button></form>
+              <form action="/playlists/<%=playlistID%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button>DELETE SONG</button></form>
             </td>
             <td>
-            <a href="/playlists/<%=id%>/songs/<%=element._id%>"><button>EDIT SONG</button></a>
+            <a href="/playlists/<%=playlistID%>/songs/<%=element._id%>"><button>EDIT SONG</button></a>
             </td>
           </tr>
        <% }) %>
@@ -67,7 +67,7 @@
 
 
         <br>
-    <form id="add-song-form" method="POST" action="/playlists/<%= id %>/songs/">
+    <form id="add-song-form" method="POST" action="/playlists/<%= playlistID %>/songs/">
         <label>Song Name:</label>
         <input type="text" name="name">
         <label>Artist:</label>

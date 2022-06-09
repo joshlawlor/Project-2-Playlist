@@ -7,35 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Show Song Page</h1>
-    <table>
-        <thead>
-          <tr>
-            <th>Song Name</th>
-            <th>Artist Name</th>
-            <th>Genre</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td>
-                
-                <%= name %>
-                
-              </td>
-              <td>
-                <%= artist %>
-              </td>
-              <td>
-                <%= genre %>
-              </td>
-              <td>
-                <%= rating %>
-              </td>
-            </tr>
-        </tbody>
-      </table>
+    <h1>Edit Song Page</h1>
+    <%=name%>
+    <form action="/playlists/<%=playlistID%>/songs/<%=songID%>?_method=PUT" method="POST">
+        <input type="text" name="name" value="<%=name%>">
+        <input type="text" name="artist" value="<%=artist%>">
+        <input type="text" name="genre" value="<%=genre%>">
+        <input type="number" name="rating" value="<%=rating%>">
+        <button type="submit">EDIT SONG</button>
+    </form>
     <br>
     <a href="/playlists/<%=playlistID%>"><button>BACK</button></a>
 </body>

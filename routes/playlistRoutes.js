@@ -10,10 +10,10 @@ router.get('/new', pCtrl.getNew)
 //CREATE ROUTE
 router.post('/', pCtrl.create)
 //EDIT ROUTE
-router.put('/:id', pCtrl.update)
+router.put('/:playlistID', pCtrl.update)
 //DELETE ROUTE
-router.delete('/:id', pCtrl.destroy)
+router.delete('/:playlistID', pCtrl.destroy)
 //SHOW ROUTE
-router.get('/:id', pCtrl.show )
+router.get('/:playlistID', pCtrl.show )
 
 module.exports = router

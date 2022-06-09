@@ -5,11 +5,13 @@ const songCtrl = require('../controllers/songController')
 
 
 //Create Route
-router.post('/:playlistId/songs', songCtrl.create)
+router.post('/:playlistID/songs', songCtrl.create)
+//EDIT
+router.put('/:playlistID/songs/:id', songCtrl.update)
 ////DELETE
-router.delete('/:playlistId/songs/:id', songCtrl.destroy)
+router.delete('/:playlistID/songs/:id', songCtrl.destroy)
 //Show Route
-router.get('/:playlistId/songs/:id', songCtrl.show)
+router.get('/:playlistID/songs/:id', songCtrl.show)
 
 
 module.exports = router

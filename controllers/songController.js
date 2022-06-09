@@ -9,14 +9,14 @@ let create = (req,res)=>{
             res.status(400).json(err)
         }
         console.log(song.id)
-        Playlist.findById(req.params.id, (err,pl)=>{
+        Playlist.findById(req.params.playlistID, (err,pl)=>{
             pl.songs.push(song)
             pl.save()
             // console.log(pl)
             // console.log(pl.songs)
+            res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })    })
         })
-        res.redirect(song.id)
-    })
+        
 
     }
 
@@ -29,13 +29,27 @@ let show = (req,res)=>{
             res.status(400).json(err)
             return
         }
-       console.log(song.name)
-       console.log(req.params.playlistId)
-        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, rating: song.rating, playlistID: req.params.playlistId })
+        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id })
     })
     // console.log(Playlist.songs)
     
 
+}
+
+let update = (req,res)=>{
+    Playlist.findById(req.params.playlistID, (err,pl)=>{
+       Song.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,song)=>{
+            Song.find({}, (err,songs)=>{
+                pl.songs.push(songs)
+                pl.save()
+                console.log(`Playlist saved!`)
+            })
+        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id 
+        })    
+        })
+       
+        
+    })
 }
 
 let destroy = (req,res)=>{
@@ -50,5 +64,6 @@ let destroy = (req,res)=>{
     module.exports = {
         create,
         show,
-        destroy
+        destroy,
+        update
     }

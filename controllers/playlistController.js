@@ -25,28 +25,28 @@ let create = (req,res)=>{
 }
 
 let show = (req,res)=>{
-    Playlist.findById(req.params.id, (err,pl)=>{
+    Playlist.findById(req.params.playlistID, (err,pl)=>{
         if(err){
             res.status(400).json(err)
             return
         }
         
-        res.render('show', {name: pl.name, info: pl.info, id: req.params.id, songs: pl.songs})
+        res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs})
     })
 }
 
 let update = (req,res)=>{
-    Playlist.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,pl)=>{
+    Playlist.findByIdAndUpdate(req.params.playlistID, req.body, {new: true}, (err,pl)=>{
         if(err){
             res.status(400).json(err)
             return
         }
-        res.render('show', {name: pl.name, info: pl.info, id: req.params.id, songs: pl.songs })
+        res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
     })
 }
 
 let destroy = (req,res)=>{
-    Playlist.findByIdAndDelete(req.params.id, (err,pl)=>{
+    Playlist.findByIdAndDelete(req.params.playlistID, (err,pl)=>{
         if(err){
             res.status(400).json(err)
             return
