@@ -40,7 +40,7 @@ let update = (req,res)=>{
             res.status(400).json(err)
             return
         }
-        res.render('show', {name: pl.name, info: pl.info, id: req.params.id })
+        res.render('show', {name: pl.name, info: pl.info, id: req.params.id, songs: pl.songs })
     })
 }
 

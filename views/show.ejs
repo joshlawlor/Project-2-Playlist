@@ -35,7 +35,9 @@
         <% songs.forEach((element,index)=>{ %>
           <tr>
             <td>
-              <%= element.name %>
+              
+              <a href="/playlists/<%=id%>/songs/<%=id%>"><%= element.name %></a>
+              
             </td>
             <td>
               <%= element.artist %>
@@ -45,6 +47,12 @@
             </td>
             <td>
               <%= element.rating %>
+            </td>
+            <td>
+              <form action="/playlists/<%=id%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button>DELETE SONG</button></form>
+            </td>
+            <td>
+            <a href="/playlists/<%=id%>/songs/<%=id%>"><button>EDIT SONG</button></a>
             </td>
           </tr>
        <% }) %>
