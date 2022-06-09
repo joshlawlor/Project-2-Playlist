@@ -1,4 +1,5 @@
 const Playlist = require('../models/playlists')
+const Song = require('../models/songs')
 
 let index = (req,res)=>{
     Playlist.find({}, (err,playlists)=>{
@@ -29,8 +30,8 @@ let show = (req,res)=>{
             res.status(400).json(err)
             return
         }
-
-        res.render('show', {name: pl.name, info: pl.info, id: req.params.id, songs: pl.songs })
+        
+        res.render('show', {name: pl.name, info: pl.info, id: req.params.id, songs: pl.songs})
     })
 }
 

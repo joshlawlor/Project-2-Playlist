@@ -1,30 +1,37 @@
-const { findById } = require('../models/playlists')
 const Playlist = require('../models/playlists')
+const { findById } = require('../models/songs')
+const Song = require('../models/songs')
 
 
 let create = (req,res)=>{
-    Playlist.findById(req.params.id, (err,pl)=>{
-        pl.songs.push(req.body)
-        pl.save((err)=>{
-            if(err){
-                res.status(400).json(err)
-            }
-            res.redirect(`/playlists/${pl._id}/`)
+    Song.create(req.body, (err,song)=>{
+        if(err){
+            res.status(400).json(err)
+        }
+        console.log(song.id)
+        Playlist.findById(req.params.id, (err,pl)=>{
+            pl.songs.push(song)
+            pl.save()
+            // console.log(pl)
+            // console.log(pl.songs)
         })
-        
-        })
+        res.redirect(song.id)
+    })
+
     }
 
+
 let show = (req,res)=>{
-    console.log(req.params.id) // Req.params.id is finding the Song ID not the Playlist ID
+    console.log(`Song show route, req ID:${req.params.id}`) // Req.params.id is finding the Song ID not the Playlist ID
     //Need to find song id and display information
-    Playlist.findById(req.params.id, (err,pl)=>{
+    Song.findById(req.params.id, (err,song)=>{
         if(err){
             res.status(400).json(err)
             return
         }
-
-        res.render('songs', {name: pl.songs[0].name, info: pl.info, id: req.params.id, songs: pl.songs })
+       console.log(song.name)
+       console.log(req.params.playlistId)
+        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, rating: song.rating, playlistID: req.params.playlistId })
     })
     // console.log(Playlist.songs)
     

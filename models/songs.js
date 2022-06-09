@@ -4,7 +4,8 @@ const songSchema = new mongoose.Schema({
     name: String,
     genre: String,
     artist: String,
-    rating: {type:Number, min: 1, max: 5, default: 5}
+    rating: {type:Number, min: 1, max: 5, default: 5},
+    playlists: []
 })
 
 const Song = mongoose.model("Song", songSchema)

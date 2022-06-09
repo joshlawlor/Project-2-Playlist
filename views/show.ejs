@@ -21,6 +21,8 @@
     <br> <br>
     <form action="/playlists/<%=id%>?_method=DELETE" method= "POST"><button>DELETE PLAYLIST</button></form>
 
+
+    <% if (songs.length){ %>
     <h2>Songs:</h2>
     <table>
       <thead>
@@ -36,7 +38,7 @@
           <tr>
             <td>
               
-              <a href="/playlists/<%=id%>/songs/<%=id%>"><%= element.name %></a>
+              <%= element.name %>
               
             </td>
             <td>
@@ -49,18 +51,23 @@
               <%= element.rating %>
             </td>
             <td>
+              <%= element._id %>
+            </td>
+            <td>
               <form action="/playlists/<%=id%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button>DELETE SONG</button></form>
             </td>
             <td>
-            <a href="/playlists/<%=id%>/songs/<%=id%>"><button>EDIT SONG</button></a>
+            <a href="/playlists/<%=id%>/songs/<%=element._id%>"><button>EDIT SONG</button></a>
             </td>
           </tr>
        <% }) %>
       </tbody>
     </table>
+<% } %>
+
 
         <br>
-    <form id="add-song-form" method="POST" action="/playlists/<%= id %>/songs">
+    <form id="add-song-form" method="POST" action="/playlists/<%= id %>/songs/">
         <label>Song Name:</label>
         <input type="text" name="name">
         <label>Artist:</label>

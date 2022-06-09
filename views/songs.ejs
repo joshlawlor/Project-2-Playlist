@@ -8,6 +8,35 @@
 </head>
 <body>
     <h1>Show Song Page</h1>
-    <h2><%= name%></h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Song Name</th>
+            <th>Artist Name</th>
+            <th>Genre</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>
+                
+                <%= name %>
+                
+              </td>
+              <td>
+                <%= artist %>
+              </td>
+              <td>
+                <%= genre %>
+              </td>
+              <td>
+                <%= rating %>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    <br>
+    <a href="/playlists/<%=playlistID%>"><button>BACK</button></a>
 </body>
 </html>

@@ -20,7 +20,7 @@ app.use(methodOverride('_method'))
 
 //ROUTES
 app.use('/playlists', playlistRoutes)
-app.use('/', songRoutes)
+app.use('/playlists', songRoutes)
 
 app.listen(PORT, ()=>{
     console.log(`It's alive! On PORT:${PORT}`)
