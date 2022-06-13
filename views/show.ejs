@@ -54,6 +54,9 @@
               <%= element._id %>
             </td>
             <td>
+              <%=element.playlists %>
+            </td>
+            <td>
               <form action="/playlists/<%=playlistID%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button>DELETE SONG</button></form>
             </td>
             <td>

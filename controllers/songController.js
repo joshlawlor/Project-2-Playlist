@@ -38,16 +38,32 @@ let show = (req,res)=>{
 
 let update = (req,res)=>{
     Playlist.findById(req.params.playlistID, (err,pl)=>{
-       Song.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,song)=>{
-            Song.find({}, (err,songs)=>{
-                pl.songs.push(songs)
+        console.log(`*******START*********`)
+        const mySong = pl.songs.find(songs => songs._id.toString() === req.params.id)
+                //Find playlist that song you are updating is inside
+            
+            console.log(`Before update: ${mySong.name}`)
+                Song.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,song)=>{
+                
+                if(song._id.toString() === req.params.id){
+                    mySong.name = song.name
+                    mySong.artist = song.artist
+                    mySong.genre = song.genre
+                    mySong.rating = song.rating
+                }
+                console.log(`After Update:${mySong.name}`)
+                console.log(`******END**********`)
+                song.save()
                 pl.save()
-                console.log(`Playlist saved!`)
-            })
-        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id 
-        })    
+                // res.redirect(`/playlists/${req.params.playlistID}`)
+                
+                res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
+                //THIS WAS THE BUG FIX THAT I HAVE BEEN TRYING TO FIGURE OUT ALL
+                // res.render('songs', {name: mySong.name, artist: song.artist, genre: song.genre, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id 
+                // })  
+        
+
         })
-       
         
     })
 }

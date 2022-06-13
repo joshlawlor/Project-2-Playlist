@@ -8,11 +8,28 @@
 </head>
 <body>
     <h1>Edit Song Page</h1>
-    <%=name%>
+    <table>
+        <thead>
+          <tr>
+            <th>Name: <%=name%></th>
+            <th>Artist: <%=artist%></th>
+            <th>Genre: <%=genre%></th>
+            <th>Rating: <%=rating%></th>
+          </tr>
+        </thead>
+    </table>
+
     <form action="/playlists/<%=playlistID%>/songs/<%=songID%>?_method=PUT" method="POST">
+        <label for="name">Name</label>
         <input type="text" name="name" value="<%=name%>">
+        <br>
+        <label for="artist">Artist</label>
         <input type="text" name="artist" value="<%=artist%>">
+        <br>
+        <label for="genre">Genre</label>
         <input type="text" name="genre" value="<%=genre%>">
+        <br>
+        <label for="rating">Rating</label>
         <input type="number" name="rating" value="<%=rating%>">
         <button type="submit">EDIT SONG</button>
     </form>

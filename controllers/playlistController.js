@@ -30,7 +30,6 @@ let show = (req,res)=>{
             res.status(400).json(err)
             return
         }
-        
         res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs})
     })
 }
