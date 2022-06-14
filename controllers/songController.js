@@ -24,7 +24,7 @@ let show = (req,res)=>{
             res.status(400).json(err)
             return
         }
-        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id })
+        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, link: song.link, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id })
     })    
 }
 
@@ -36,9 +36,9 @@ let update = (req,res)=>{
             pl.songs.splice(mySong, 1)
             song.save()
             pl.save()
-            // res.redirect(`/playlists/${req.params.playlistID}`)
+            res.redirect(`/playlists/${req.params.playlistID}/songs/${req.params.id}`)
                 
-                res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
+                // res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
                 //THIS WAS THE BUG FIX THAT I HAVE BEEN TRYING TO FIGURE OUT ALL
         })
         

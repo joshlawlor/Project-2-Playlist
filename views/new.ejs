@@ -1,10 +1,25 @@
 <%- include('./partials/header') %>
+<div id="main" class="center-align">
+<div class="row">
 
-    <form action="/playlists/" method="POST">
-        <input type="text" name="name" id="name">
-        <input type="textarea" name="info" id="info">
-        <input type="submit" name="submit" id="submit">
-    </form>
+    <div class="col s3 " >
+        <form action="/playlists/" method="POST">
+            <input type="text" name="name" id="name">
+            <input type="textarea" name="info" id="info">
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </div>
+
+    <div class="col s9">
+      <!-- Teal page content  -->
+    </div>
+
+  </div>
+    
+
+
+
+</div>
 </body>
 </html>
 <%- include('./partials/footer') %>

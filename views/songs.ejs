@@ -1,6 +1,7 @@
 <%- include('./partials/header') %>
-
-    <h1>Edit Song Page</h1>
+<div class="#212121 grey darken-4 white-text">
+    <h1><%=name%></h1>
+    <a href="/playlists/<%=playlistID%>"><button class="large material-icons">backspace</button></a>
     <table>
         <thead>
           <tr>
@@ -12,6 +13,15 @@
         </thead>
     </table>
 
+<br>
+
+<div class="video-container">
+    <iframe width="853" height="480" src="<%=link%>" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<br>
+
+
     <form action="/playlists/<%=playlistID%>/songs/<%=songID%>?_method=PUT" method="POST">
         <label for="name">Name</label>
         <input type="text" name="name" value="<%=name%>">
@@ -22,12 +32,16 @@
         <label for="genre">Genre</label>
         <input type="text" name="genre" value="<%=genre%>">
         <br>
+        <label for="link">Link</label>
+        <input type="text" name="link" value="<%=link%>">
+        <br>
         <label for="rating">Rating</label>
         <input type="number" name="rating" value="<%=rating%>">
-        <button type="submit">EDIT SONG</button>
+        <button class="large material-icons" type="submit">build</button>
     </form>
     <br>
-    <a href="/playlists/<%=playlistID%>"><button>BACK</button></a>
+</div>
 </body>
 </html>
 <%- include('./partials/footer') %>
+

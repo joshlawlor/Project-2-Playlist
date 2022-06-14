@@ -1,23 +1,18 @@
 <%- include('./partials/header') %>
-
-    <h1>Playlist Name: <%= name%></h1>
-    <h2>Info: <%=info%></h2>
-    <form action="/playlists/<%= playlistID %>?_method=PUT" method="POST">
-        <input type="text" name="name" value="<%=name%>">
-        <input type="text" name="info" value="<%=info%>">
-        <button type="submit">EDIT PLAYLIST</button>
-    </form>
+<div class="#212121 grey darken-4 white-text center-align">
+<br>
+<a href="/playlists"><button class="material-icons">backspace</button></a>
+<img src="/public/images/vinyl.png" alt="Vinyl">
+<div> <h1 class="center-align">  <i class="medium material-icons">album</i>
+  <%= name%></h1>
+<h5 class="center-align"><%=info%></h5>
+</div>
+   
     <br>
-    
-    <br>
-    <a href="/playlists"><button>BACK</button></a>
-    <br> <br>
-    <form action="/playlists/<%=playlistID%>?_method=DELETE" method= "POST"><button>DELETE PLAYLIST</button></form>
-
 
     <% if (songs.length){ %>
-    <h2>Songs:</h2>
-    <table>
+    <h3>Songs:</h3>
+    <table class="">
       <thead>
         <tr>
           <th>Song Name</th>
@@ -30,9 +25,7 @@
         <% songs.forEach((element,index)=>{ %>
           <tr>
             <td>
-              
               <%= element.name %>
-              
             </td>
             <td>
               <%= element.artist %>
@@ -44,16 +37,13 @@
               <%= element.rating %>
             </td>
             <td>
-              <%= element._id %>
-            </td>
-            <td>
               <%=element.playlists %>
             </td>
             <td>
-              <form action="/playlists/<%=playlistID%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button>DELETE SONG</button></form>
+              <a href="/playlists/<%=playlistID%>/songs/<%=element._id%>"><button class="material-icons">build</button></a>
             </td>
             <td>
-            <a href="/playlists/<%=playlistID%>/songs/<%=element._id%>"><button>EDIT SONG</button></a>
+              <form action="/playlists/<%=playlistID%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button class="material-icons">delete</button></form>
             </td>
           </tr>
        <% }) %>
@@ -63,13 +53,19 @@
 
 
         <br>
+        
     <form id="add-song-form" method="POST" action="/playlists/<%= playlistID %>/songs/">
+      <h4>New Song:
+        <button class="material-icons" type="submit" value="Add Song">add</button>
+      </h4>
         <label>Song Name:</label>
         <input type="text" name="name">
         <label>Artist:</label>
         <input type="text" name="artist">
         <label>Genre:</label>
         <input type="text" name="genre">
+        <label for="link">Link:</label>
+        <input type="text" name="link">
         <label>Rating:</label>
         <select name="rating">
           <option value="1">1</option>
@@ -78,10 +74,23 @@
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <input type="submit" value="Add Song">
+        <br><br>
       </form>
+      <br>
+      <br>
 
-
+      <form action="/playlists/<%= playlistID %>?_method=PUT" method="POST">
+        <h5>Edit Playlist
+          <button type="submit"><i type="submit" class="material-icons">build</i></button>
+        </h5>
+        <input type="text" name="name" value="<%=name%>">
+        <input type="text" name="info" value="<%=info%>">
+        
+    </form>
+    <br>
+    <form action="/playlists/<%=playlistID%>?_method=DELETE" method= "POST"><button class="material-icons">delete</button><h5>Delete Playlist</h5></form>
+    
+  </div>
 
 
 
