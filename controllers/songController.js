@@ -51,24 +51,19 @@ let destroy = (req,res)=>{
             res.status(400).json(err)
             return
         }
-        console.log(`****START****`)
-        console.log(req.params.id)
     const mySongIndex = pl.songs.findIndex(songs => songs._id.toString() === req.params.id)
-    const mySong = pl.songs.find(songs => songs._id.toString() === req.params.id)
-    Song.findByIdAndDelete(req.params.id, (err,song)=>{
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        pl.songs.splice(mySongIndex, 1)
-        pl.save()
-        console.log('Saved')
-        res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
-        console.log(`****END****`)
-
+        Song.findByIdAndDelete(req.params.id, (err,song)=>{
+            if(err){
+                res.status(400).json(err)
+                return
+            }
+            pl.songs.splice(mySongIndex, 1)
+            pl.save()
+            res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
+        })
     })
-})
 }
+
     module.exports = {
         create,
         show,
