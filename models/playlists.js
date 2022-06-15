@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-
-
 const playlistSchema = new mongoose.Schema({
     name: String,
     info: String,

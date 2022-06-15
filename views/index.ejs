@@ -1,5 +1,5 @@
 <%- include('./partials/header') %>
-<div class="#212121 grey darken-4 center-align">
+<div class="nav-wrapper #212121 grey darken-4 grey-text center-align ">
     <h1>
         <i class="medium material-icons">album</i>
         My Playlists
@@ -7,7 +7,7 @@
         <ul>
         <%index.forEach((element,index)=>{ %>
         <li>
-            <a href="/playlists/<%=element.id%>"><%=element.name%></a>
+            <h3><a class="white-text" href="/playlists/<%=element.id%>"><%=element.name%></a></h3>
         </li>
    <% })%>
     </ul>

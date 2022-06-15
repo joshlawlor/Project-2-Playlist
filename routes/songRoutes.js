@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router()
 const songCtrl = require('../controllers/songController')
 
-
-
 //Create Route
 router.post('/:playlistID/songs', songCtrl.create)
 //EDIT
