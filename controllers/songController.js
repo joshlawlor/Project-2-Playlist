@@ -30,6 +30,7 @@ let show = (req,res)=>{
 
 let update = (req,res)=>{
     Playlist.findById(req.params.playlistID, (err,pl)=>{
+         //THIS WAS THE BUG FIX THAT I HAVE BEEN TRYING TO FIGURE OUT 
         const mySong = pl.songs.findIndex(songs => songs._id.toString() === req.params.id)
         Song.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err,song)=>{
             pl.songs.push(song)
@@ -39,7 +40,7 @@ let update = (req,res)=>{
             res.redirect(`/playlists/${req.params.playlistID}/songs/${req.params.id}`)
                 
                 // res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
-                //THIS WAS THE BUG FIX THAT I HAVE BEEN TRYING TO FIGURE OUT ALL
+               
         })
         
     })

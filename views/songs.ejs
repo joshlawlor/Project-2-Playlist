@@ -17,28 +17,30 @@
 
 <div class="video-container">
     <iframe width="853" height="480" src="<%=link%>" frameborder="0" allowfullscreen></iframe>
+    
 </div>
 
 <br>
 
-
-    <form action="/playlists/<%=playlistID%>/songs/<%=songID%>?_method=PUT" method="POST">
-        <label for="name">Name</label>
-        <input type="text" name="name" value="<%=name%>">
-        <br>
-        <label for="artist">Artist</label>
-        <input type="text" name="artist" value="<%=artist%>">
-        <br>
-        <label for="genre">Genre</label>
-        <input type="text" name="genre" value="<%=genre%>">
-        <br>
-        <label for="link">Link</label>
-        <input type="text" name="link" value="<%=link%>">
-        <br>
-        <label for="rating">Rating</label>
-        <input type="number" name="rating" value="<%=rating%>">
-        <button class="large material-icons" type="submit">build</button>
-    </form>
+    <div>
+        <form action="/playlists/<%=playlistID%>/songs/<%=songID%>?_method=PUT" method="POST">
+            <label for="name">Name</label>
+            <input  class="white-text" type="text" name="name" value="<%=name%>">
+            <br>
+            <label for="artist">Artist</label>
+            <input  class="white-text" type="text" name="artist" value="<%=artist%>">
+            <br>
+            <label for="genre">Genre</label>
+            <input  class="white-text" type="text" name="genre" value="<%=genre%>">
+            <br>
+            <label for="link">Link</label>
+            <input  class="white-text" type="text" name="link" value="<%=link%>">
+            <br>
+            <label for="rating">Rating</label>
+            <input  class="white-text" type="number" name="rating" value="<%=rating%>">
+            <button class="large material-icons" type="submit">build</button>
+        </form>
+    </div>    
     <br>
 </div>
 </body>

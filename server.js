@@ -5,7 +5,7 @@ const path = require('path')
 const playlistRoutes = require('./routes/playlistRoutes')
 const songRoutes =  require('./routes/songRoutes')
 require('./db/connection')
-
+require('dotenv').config()
 //VIEW ENGINE
 app.set('view engine' , 'ejs')
 
