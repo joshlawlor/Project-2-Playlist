@@ -1,13 +1,13 @@
 <%- include('./partials/header') %>
 <div id="index" class=" #212121 grey darken-4">
-    <div class="nav-bar"></div>
     <br>
     <div class="grey-text center-align ">
         <h1>
             <i class="medium material-icons">album</i>
             My Playlists
         </h1>
-            <ul>
+       
+            <ul >
             <%index.forEach((element,index)=>{ %>
             <li>
                 <h3><a class="blue-text" href="/playlists/<%=element.id%>"><%=element.name%></a></h3>

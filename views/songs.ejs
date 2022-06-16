@@ -1,16 +1,21 @@
 <%- include('./partials/header') %>
 <div class="#212121 grey darken-4 white-text center-align">
     <br>
-    <a href="/playlists/<%=playlistID%>"><button class="large material-icons">backspace</button></a>
-    <h1 class="#1b5e20 green-text darken-4 center-align">  <i class="center-align medium material-icons">music_note</i>
+        <div class="center-align">
+            <div id="backspace" class="center-align">
+                <a id="back" class="center-align" href="/playlists/<%=playlistID%>"><i class="medium material-icons">backspace</i></a>  
+                <a id="home" class="center-align" href="/playlists"><i class="medium material-icons">home</i></a>  
+            </div>
+        </div>
+    <h1 class="#1b5e20 yellow-text darken-4 center-align">  <i class="center-align medium material-icons">music_note</i>
         <%= name%> </h1>
     <table>
-        <thead class="blue">
+        <thead class="yellow">
           <tr>
-            <th class="center-align"><%=name%></th>
-            <th class="center-align"> <%=artist%></th>
-            <th class="center-align"> <%=genre%></th>
-            <th class="center-align"> <%=rating%></th>
+            <th class="black-text center-align"><%=name%></th>
+            <th class="black-text center-align"> <%=artist%></th>
+            <th class="black-text center-align"> <%=genre%></th>
+            <th class="black-text center-align"> <%=rating%></th>
           </tr>
         </thead>
     </table>
