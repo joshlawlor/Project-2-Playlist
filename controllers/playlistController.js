@@ -6,7 +6,8 @@ let index = (req,res)=>{
         if(err){
             res.status(400).json(err)
         }
-        res.render('index', {index: playlists})
+        let indexTitle = "Home"
+        res.render('index', {title: indexTitle, index: playlists})
     })
 }
 
@@ -30,7 +31,7 @@ let show = (req,res)=>{
             res.status(400).json(err)
             return
         }
-        res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs})
+        res.render('show', {title: pl.name, name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs})
     })
 }
 
@@ -40,7 +41,7 @@ let update = (req,res)=>{
             res.status(400).json(err)
             return
         }
-        res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
+        res.render('show', {title: pl.name, name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
     })
 }
 

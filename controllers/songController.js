@@ -11,7 +11,7 @@ let create = (req,res)=>{
         Playlist.findById(req.params.playlistID, (err,pl)=>{
             pl.songs.push(song)
             pl.save()
-            res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })    })
+            res.render('show', {title: pl.name, name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })    })
         })
         
 
@@ -24,7 +24,10 @@ let show = (req,res)=>{
             res.status(400).json(err)
             return
         }
-        res.render('songs', {name: song.name, artist: song.artist, genre: song.genre, link: song.link, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id })
+        // Deletes https://youtu.be/ only works if user copys URL
+        let linkInput = song.link.substr(17)
+        console.log(song.link)
+        res.render('songs', {title: song.name, name: song.name, artist: song.artist, genre: song.genre,link: song.link, linkInput: linkInput, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id })
     })    
 }
 
@@ -60,7 +63,7 @@ let destroy = (req,res)=>{
             }
             pl.songs.splice(mySongIndex, 1)
             pl.save()
-            res.render('show', {name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
+            res.render('show', {title: pl.name, name: pl.name, info: pl.info, playlistID: req.params.playlistID, songs: pl.songs })
         })
     })
 }

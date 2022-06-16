@@ -54,18 +54,18 @@
         <br>
         
     <form id="add-song-form" method="POST" action="/playlists/<%= playlistID %>/songs/">
-      <h4>New Song:
-        <button class="material-icons" type="submit" value="Add Song">add</button>
+      <h4 class="green-text">New Song:
+        <button class="green material-icons" type="submit" value="Add Song">add</button>
       </h4>
-        <label>Song Name:</label>
-        <input type="text" name="name">
-        <label>Artist:</label>
-        <input type="text" name="artist">
-        <label>Genre:</label>
-        <input type="text" name="genre">
-        <label for="link">Link:</label>
-        <input type="text" name="link">
-        <label>Rating:</label>
+        <label class="green-text">Song Name:</label>
+        <input  class="center-align green-text" type="text" name="name">
+        <label class="green-text">Artist:</label>
+        <input  class="center-align green-text" type="text" name="artist">
+        <label class="green-text">Genre:</label>
+        <input  class="center-align green-text" type="text" name="genre">
+        <label  class="green-text" for="link">Link:</label>
+        <input  class="center-align green-text" type="text" name="link">
+        <label class="green-text">Rating:</label>
         <select name="rating">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -73,21 +73,27 @@
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        
         <br><br>
       </form>
       <br>
       <br>
 
       <form action="/playlists/<%= playlistID %>?_method=PUT" method="POST">
-        <h5>Edit Playlist
-          <button type="submit"><i type="submit" class="material-icons">build</i></button>
-        </h5>
-        <input type="text" name="name" value="<%=name%>">
-        <input type="text" name="info" value="<%=info%>">
+
+        <h5 class="center-align yellow-text">Edit Playlist        </h5>
+        <input class="center-align yellow-text" type="text" name="name" value="<%=name%>">
+        <input class="center-align yellow-text" type="text" name="info" value="<%=info%>">
         
+        <button class="yellow" type="submit"><i type="submit" class="yellow material-icons">build</i></button>
+
     </form>
     <br>
-    <form action="/playlists/<%=playlistID%>?_method=DELETE" method= "POST"><button class="material-icons">delete</button><h5>Delete Playlist</h5></form>
+    <form action="/playlists/<%=playlistID%>?_method=DELETE" method= "POST">
+      <h5 class="red-text">Delete playlist</h5>
+      <button class=" red material-icons">delete</button>
+    
+    </form>
     
   </div>
 

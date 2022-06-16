@@ -1,7 +1,8 @@
 <%- include('./partials/header') %>
-<div class="#212121 grey darken-4 white-text">
-    <h1><%=name%></h1>
+<div class="#212121 grey darken-4 white-text center-align">
+    <br>
     <a href="/playlists/<%=playlistID%>"><button class="large material-icons">backspace</button></a>
+    <h1><%=name%></h1>
     <table>
         <thead>
           <tr>
@@ -16,29 +17,30 @@
 <br>
 
 <div class="video-container">
-    <iframe width="853" height="480" src="<%=link%>" frameborder="0" allowfullscreen></iframe>
+    <iframe width="853" height="480" src="http://www.youtube.com/embed/<%=linkInput%>" frameborder="0" allowfullscreen></iframe>
     
 </div>
 
 <br>
 
     <div>
+        <h4 class="yellow-text">Edit Song</h4>
         <form action="/playlists/<%=playlistID%>/songs/<%=songID%>?_method=PUT" method="POST">
-            <label for="name">Name</label>
-            <input  class="white-text" type="text" name="name" value="<%=name%>">
+            <label  class="yellow-text" for="name">Name</label>
+            <input  class="center-align yellow-text" type="text" name="name" value="<%=name%>">
             <br>
-            <label for="artist">Artist</label>
-            <input  class="white-text" type="text" name="artist" value="<%=artist%>">
+            <label  class="yellow-text" for="artist">Artist</label>
+            <input  class="center-align yellow-text" type="text" name="artist" value="<%=artist%>">
             <br>
-            <label for="genre">Genre</label>
-            <input  class="white-text" type="text" name="genre" value="<%=genre%>">
+            <label  class="yellow-text" for="genre">Genre</label>
+            <input  class="center-align yellow-text" type="text" name="genre" value="<%=genre%>">
             <br>
-            <label for="link">Link</label>
-            <input  class="white-text" type="text" name="link" value="<%=link%>">
+            <label  class="yellow-text" for="link">Video URL</label>
+            <input  class="center-align yellow-text" type="text" name="link" value="<%=link%>">
             <br>
-            <label for="rating">Rating</label>
-            <input  class="white-text" type="number" name="rating" value="<%=rating%>">
-            <button class="large material-icons" type="submit">build</button>
+            <label  class="yellow-text" for="rating">Rating</label>
+            <input  class="center-align yellow-text" type="number" name="rating" value="<%=rating%>">
+            <button class="yellow large material-icons" type="submit">build</button>
         </form>
     </div>    
     <br>
