@@ -2,22 +2,22 @@
 <div class="#212121 grey darken-4 white-text center-align">
     <br>
     <a href="/playlists/<%=playlistID%>"><button class="large material-icons">backspace</button></a>
-    <h1><%=name%></h1>
+    <h1 class="#1b5e20 green-text darken-4 center-align">  <i class="center-align medium material-icons">music_note</i>
+        <%= name%> </h1>
     <table>
-        <thead>
+        <thead class="blue">
           <tr>
-            <th>Name: <%=name%></th>
-            <th>Artist: <%=artist%></th>
-            <th>Genre: <%=genre%></th>
-            <th>Rating: <%=rating%></th>
+            <th class="center-align"><%=name%></th>
+            <th class="center-align"> <%=artist%></th>
+            <th class="center-align"> <%=genre%></th>
+            <th class="center-align"> <%=rating%></th>
           </tr>
         </thead>
     </table>
 
-<br>
 
 <div class="video-container">
-    <iframe width="853" height="480" src="http://www.youtube.com/embed/<%=linkInput%>" frameborder="0" allowfullscreen></iframe>
+    <iframe width="853" height="480" src="http://www.youtube.com/embed/<%=linkId%>" frameborder="0" allowfullscreen></iframe>
     
 </div>
 
@@ -35,7 +35,7 @@
             <label  class="yellow-text" for="genre">Genre</label>
             <input  class="center-align yellow-text" type="text" name="genre" value="<%=genre%>">
             <br>
-            <label  class="yellow-text" for="link">Video URL</label>
+            <label  class="yellow-text" for="link">Video URL:</label>
             <input  class="center-align yellow-text" type="text" name="link" value="<%=link%>">
             <br>
             <label  class="yellow-text" for="rating">Rating</label>

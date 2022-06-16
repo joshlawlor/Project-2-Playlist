@@ -13,7 +13,7 @@ let index = (req,res)=>{
 
 
 let getNew = (req,res)=>{
-    res.render('new')
+    res.render('new', {title: "New Playlist"})
 }
 
 let create = (req,res)=>{

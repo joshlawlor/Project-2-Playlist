@@ -1,61 +1,61 @@
 <%- include('./partials/header') %>
 <div class="#212121 grey darken-4 white-text center-align">
 <br>
-<a href="/playlists"><button class="material-icons">backspace</button></a>
-<div> <h1 class="center-align">  <i class="medium material-icons">album</i>
+<div id="backspace" class="left-align">
+  <a class="center-align" href="/playlists"><i class="medium material-icons">backspace</i></a>  
+</div>
+<div> 
+<h1 class="center-align">  <i class="medium material-icons">album</i>
   <%= name%></h1>
 <h5 class="center-align"><%=info%></h5>
 </div>
    
     <br>
 
-    <% if (songs.length){ %>
-    <h3>Songs:</h3>
     <table class="">
-      <thead>
+      <thead class="blue">
         <tr>
-          <th>Song Name</th>
-          <th>Artist Name</th>
-          <th>Genre</th>
-          <th>Rating</th>
+          <th  class="center-align">Song Name</th>
+          <th class="center-align">Artist Name</th>
+          <th class="center-align">Genre</th>
+          <th class="center-align">Rating</th>
+          <th class="center-align">View</th>
+          <th class="center-align">Delete</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="#757575 grey darken-1">
         <% songs.forEach((element,index)=>{ %>
           <tr>
-            <td>
+            <td class="center-align">
               <%= element.name %>
             </td>
-            <td>
+            <td class="center-align">
               <%= element.artist %>
             </td>
-            <td>
+            <td class="center-align">
               <%= element.genre %>
             </td>
-            <td>
+            <td class="center-align">
               <%= element.rating %>
             </td>
-            <td>
-              <%=element.playlists %>
+            <td class="center-align">
+              <a href="/playlists/<%=playlistID%>/songs/<%=element._id%>"><button class="material-icons">visibility</button></a>
             </td>
-            <td>
-              <a href="/playlists/<%=playlistID%>/songs/<%=element._id%>"><button class="material-icons">build</button></a>
-            </td>
-            <td>
+            <td class="center-align">
               <form action="/playlists/<%=playlistID%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button class="material-icons">delete</button></form>
             </td>
           </tr>
        <% }) %>
       </tbody>
     </table>
-<% } %>
+
 
 
         <br>
         
     <form id="add-song-form" method="POST" action="/playlists/<%= playlistID %>/songs/">
       <h4 class="green-text">New Song:
-        <button class="green material-icons" type="submit" value="Add Song">add</button>
+       
       </h4>
         <label class="green-text">Song Name:</label>
         <input  class="center-align green-text" type="text" name="name">
@@ -63,17 +63,12 @@
         <input  class="center-align green-text" type="text" name="artist">
         <label class="green-text">Genre:</label>
         <input  class="center-align green-text" type="text" name="genre">
-        <label  class="green-text" for="link">Link:</label>
+        <label  class="green-text" for="link">Video URL:</label>
         <input  class="center-align green-text" type="text" name="link">
         <label class="green-text">Rating:</label>
-        <select name="rating">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        
+        <input  class="center-align green-text" type="number" name="rating" min="-5" max="5">
+       
+        <button class="green material-icons" type="submit" value="Add Song">add</button>
         <br><br>
       </form>
       <br>
@@ -90,7 +85,7 @@
     </form>
     <br>
     <form action="/playlists/<%=playlistID%>?_method=DELETE" method= "POST">
-      <h5 class="red-text">Delete playlist</h5>
+      <h5 class="red-text">Delete Playlist</h5>
       <button class=" red material-icons">delete</button>
     
     </form>

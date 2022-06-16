@@ -1,23 +1,18 @@
 <%- include('./partials/header') %>
-<div id="main" class="center-align">
-<div class="row">
-
-    <div class="col s3 " >
-        <form action="/playlists/" method="POST">
-            <input type="text" name="name" id="name">
-            <input type="textarea" name="info" id="info">
-            <input type="submit" name="submit" id="submit">
-        </form>
-    </div>
-
-    <div class="col s9">
-    </div>
-
-  </div>
-    
+<div id="main" class="#212121 grey darken-4 center-align">
+<br>
+<h2 class="green-text lighten-2">New Playlist</h2>
+    <form action="/playlists/" method="POST">
+        <label for="name" class="green-text lighten-2">Playlist Name:</label>
+        <input type="text" name="name" id="name">
+        <label for="info" class="green-text lighten-2">Playlist Info:</label>
+        <input type="text" name="info" id="info">
+        <input class="green darken-2" type="submit" name="submit" id="submit">
+    </form>
 
 
-
+    <br>
+    <br>
 </div>
 </body>
 </html>

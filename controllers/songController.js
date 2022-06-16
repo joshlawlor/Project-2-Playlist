@@ -25,9 +25,8 @@ let show = (req,res)=>{
             return
         }
         // Deletes https://youtu.be/ only works if user copys URL
-        let linkInput = song.link.substr(17)
-        console.log(song.link)
-        res.render('songs', {title: song.name, name: song.name, artist: song.artist, genre: song.genre,link: song.link, linkInput: linkInput, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id })
+        let linkId = song.link.substr(17)
+        res.render('songs', {title: song.name, name: song.name, artist: song.artist, genre: song.genre,link: song.link, linkId: linkId, rating: song.rating, playlistID: req.params.playlistID, songID: req.params.id })
     })    
 }
 
