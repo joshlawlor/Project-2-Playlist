@@ -7,7 +7,7 @@ let index = (req,res)=>{
             res.status(400).json(err)
         }
         let indexTitle = "Home"
-        res.render('index', {title: indexTitle, index: playlists})
+        res.render('index', {title: indexTitle, index: playlists, playlistID: req.params.playlistID})
     })
 }
 

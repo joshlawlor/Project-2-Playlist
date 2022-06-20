@@ -1,24 +1,59 @@
 <%- include('./partials/header') %>
 <div id="index" class=" #212121 grey darken-4">
     <br>
-    <div class="grey-text center-align ">
+    <div class="#00c853 green-text accent-3  center-align ">
         <h1>
-            <i class="medium material-icons">album</i>
+            <i class="medium material-icons">library_music</i>
             My Playlists
         </h1>
        
-            <ul >
-            <%index.forEach((element,index)=>{ %>
-            <li>
-                <h3><a class="blue-text" href="/playlists/<%=element.id%>"><%=element.name%></a></h3>
-            </li>
-    <% })%>
-        </ul>
-        <a href="/playlists/new"><button>New Playlist</button></a>
+            <table class="highlight">
+                <thead class="#00c853 green accent-4">
+                    <tr>
+                        <th class="white-text center-align">Playlist Name</th>
+                        <th class="white-text center-align">View</th>
+                        <th class="white-text center-align">Delete</th>
+                    </tr>   
+                </thead>
 
+                <tbody class="#757575 grey darken-1">
+                    <%index.forEach((element,index)=>{ %>
+                    <tr>
+                        <td class="white-text center-align">
+                            <%=element.name%>
+                        </td>
+                        <td class="center-align">
+                            <a href="/playlists/<%=element.id%>">
+                                <i class="#00c853 green-text accent-4 material-icons">visibility</i></a>
+                        </td>
+                        <td class="center-align">
+                            <form action="/playlists/<%=element.id%>?_method=DELETE" method= "POST">
+                                <button class="red material-icons">delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% })%>
+
+                </tbody>
+
+            </table>
+        
+            <form id="add-playlist-form" method="POST" action="/playlists/">
+            <h4 class="green-text">New Playlist:
+            
+            </h4>
+              <label class="green-text">Playlist Name:</label>
+              <input  class="center-align green-text" type="text" name="name">
+              <label class="green-text">Info:</label>
+              <input  class="center-align green-text" type="text" name="info">
+              <button class="green material-icons" type="submit" value="Add Song">add</button>
+              <br><br>
+            </form>
 
     </div>
 </div>    
+
+
 </body>
 </html>
 <%- include('./partials/footer') %>

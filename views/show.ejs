@@ -1,21 +1,25 @@
 <%- include('./partials/header') %>
 <div class="#212121 grey darken-4 white-text center-align">
   <br>
-    <div class="nav-wrapper center-align">
-      <a id="home" class="center-align" href="/playlists"><i class="medium material-icons">home</i></a>  
-
+  
+    <div id="navbar" class="nav-wrapper center-align">
+      <a id="home" class="#00c853 green-text accent-3 center-align" href="/playlists">
+        <i class="large material-icons">home</i>
+      </a>  
     </div>
 
-  <div> 
-    <h1 class="#2979ff blue-text accent-3 center-align">  <i class="medium material-icons">album</i>
-      <%= name%></h1>
-    <h5 class="#2979ff blue-text accent-3 center-align"><%=info%></h5>
-  </div>
-    
-      <br>
+    <div id="pageTitle">
+      <h1 class="#00c853 green-text accent-3 center-align">  
+        <i class="medium material-icons">album</i>
+        <%= name%>
+      </h1>
+      <h5 class="#00c853 green-text accent-3 center-align"><%=info%></h5>
+    </div>
 
-      <table class="">
-        <thead class="blue">
+  <br>
+
+      <table class="highlight">
+        <thead class="#00c853 green accent-4">
           <tr>
             <th  class="center-align">Song Name</th>
             <th class="center-align">Artist Name</th>
@@ -41,10 +45,10 @@
                 <%= element.rating %>
               </td>
               <td class="center-align">
-                <a href="/playlists/<%=playlistID%>/songs/<%=element._id%>"><button class="material-icons">visibility</button></a>
+                <a href="/playlists/<%=playlistID%>/songs/<%=element._id%>"><i class="#00c853 green-text accent-4 material-icons">visibility</i></a>
               </td>
               <td class="center-align">
-                <form action="/playlists/<%=playlistID%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button class="material-icons">delete</button></form>
+                <form action="/playlists/<%=playlistID%>/songs/<%=element._id%>?_method=DELETE" method= "POST"><button class="red material-icons">delete</button></form>
               </td>
             </tr>
         <% }) %>
@@ -86,12 +90,6 @@
 
       </form>
       <br>
-      <form action="/playlists/<%=playlistID%>?_method=DELETE" method= "POST">
-        <h5 class="red-text">Delete Playlist</h5>
-        <button class=" red material-icons">delete</button>
-      
-      </form>
-      
     </div>
 
 
