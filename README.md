@@ -2,6 +2,14 @@
 
 My app will allow users to save their favorite songs in a playlist format. Users will be able to add songs that they like, and make a playlist out of the songs. Users will be able to delete and edit any of their entries. Users will also be able to save a link to a music video for their songs. 
 
+### Live site link: https://sei-prj2-playlistapp.herokuapp.com/
+
+### Technology Used:
+1. Express
+2. MongoDb
+3. Heroku
+4. Materialize.css
+
 ### MVP
 
 1. User is able to create new playlist
