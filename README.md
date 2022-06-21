@@ -8,7 +8,8 @@ My app will allow users to save their favorite songs in a playlist format. Users
 1. Express
 2. MongoDb
 3. Heroku
-4. Materialize.css
+4. EJS
+5. Materialize.css
 
 ### MVP
 
